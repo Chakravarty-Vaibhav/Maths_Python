@@ -1,0 +1,23 @@
+# =====================================================================
+# TAYLOR EXPANSION REFERENCE:
+#
+#                  ∞
+#                 ___
+#                 \      1
+#       f(x)  =   /     ---  f⁽ⁿ⁾(x₀) (x - x₀)ⁿ
+#                 ---    n!
+#                 n=0
+# =====================================================================
+import numpy as np 
+def Taylor_Exp(X , X0, N_max):
+# X = Argument, X0= point at which derivative calculated
+    t = 0
+    for N_max in range(N_max +1):
+        t = t + ((np.exp(X0))*((X- X0)**N_max))/ np.math.factorial(N_max)
+
+    return t 
+print(Taylor_Exp(1,0,10))
+print(np.exp(1))
+# we can see the above two outputs are similar 
+# down to the 7th decimal place
+
