@@ -1,0 +1,30 @@
+# ==============================================================================
+# HIGHER DERIVATIVES:
+#
+#                          n
+#                         ___
+#                   1     \                   n!
+#  f⁽ⁿ⁾(x) = lim   ----   /    (-1)ᵏ⁺ⁿ  ------------  f(x + kh)
+#            h→0    hⁿ    ---            k!(n-k)!
+#                         k=0
+#
+# ==============================================================================
+import numpy as np 
+import math 
+def n_Derivative(f, h, n, x):
+    t = 0
+    for k in range(n+1):
+      t = t + ((-1)**(k+n)*(math.factorial(n)) / (math.factorial(k) * math.factorial(n-k))*f(x+k*h))
+
+    return t/h**n
+
+def func(x):
+    return (np.sin(x)**2 + np.tanh(x)**2)
+
+print(n_Derivative(func,0.001, 3, 0))
+
+
+
+    
+
+
